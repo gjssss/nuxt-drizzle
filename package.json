@@ -1,0 +1,91 @@
+{
+  "name": "nuxt-drizzle",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.10.5",
+  "description": "Nuxt Module with Drizzle ORM",
+  "author": "GJSSSS gaojinsong2010@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/gjssss/nuxt-drizzle",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjssss/nuxt-drizzle"
+  },
+  "bugs": "https://github.com/gjssss/nuxt-drizzle/issues",
+  "keywords": [
+    "Nuxt",
+    "Nuxt3",
+    "Nuxt Module",
+    "Drizzle",
+    "ORM"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "module": "./dist/module.mjs",
+  "types": "./dist/types.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/types.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "nuxt-module-build build",
+    "dev": "pnpm play",
+    "play": "pnpm -F playground dev",
+    "lint": "eslint .",
+    "release": "bumpp && npm publish",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepare": "simple-git-hooks && nuxt-module-build build --stub && nuxt-module-build prepare && pnpm -F playground prepare"
+  },
+  "dependencies": {
+    "@nuxt/devtools-kit": "^1.0.2",
+    "@nuxt/kit": "^3.8.1",
+    "drizzle-orm": "^0.29.0",
+    "mysql2": "^3.6.3"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^1.1.2",
+    "@antfu/ni": "^0.21.9",
+    "@antfu/utils": "^0.7.6",
+    "@iconify-json/carbon": "^1.1.21",
+    "@nuxt/devtools": "^1.0.2",
+    "@nuxt/devtools-ui-kit": "^1.0.2",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxt/module-builder": "^0.5.4",
+    "@nuxt/schema": "^3.8.1",
+    "@nuxt/test-utils": "^3.8.1",
+    "@types/node": "^20.9.0",
+    "bumpp": "^9.2.0",
+    "eslint": "^8.53.0",
+    "esno": "^4.0.0",
+    "lint-staged": "^15.1.0",
+    "nuxt": "^3.8.1",
+    "pnpm": "^8.10.5",
+    "rimraf": "^5.0.5",
+    "simple-git-hooks": "^2.9.0",
+    "typescript": "^5.2.2",
+    "unbuild": "^2.0.0",
+    "vite": "^4.5.0",
+    "vitest": "^0.33.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
